@@ -121,6 +121,8 @@ class LM(AbstractLanguageChecker):
 
         pred_topk = [[(self.postprocess(t[0]), t[1]) for t in pred] for pred in pred_topk]
         payload = {'bpe_strings': bpe_strings,
+                   'y': y,
+                   'yhat': yhat,
                    'real_topk': real_topk,
                    'pred_topk': pred_topk}
         if torch.cuda.is_available():
